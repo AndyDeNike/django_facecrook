@@ -122,6 +122,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #location where media will be sent 
+MEDIA_URL = '/media/' #accessing media from browser 
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Modified redirect locations for login 
