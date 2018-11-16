@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView	
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic import ListView, DetailView, CreateView, UpdateView	
 from .models import Post
 #from django.http import HttpResponse
 
@@ -22,7 +23,18 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
 	model = Post 
 
-class PostCreateView(CreateView):
+# PostCreateView/PostUpdateView share the same template, post_form.html
+class PostCreateView(LoginRequiredMixin, CreateView):
+	model = Post 
+	fields = ['title', 'content']
+
+	# Before you submit form, take instance and set it to current user
+	def form_valid(self, form):
+		# sets author before Post is created 
+		form.instance.author = self.request.user
+		return super().form_valid(form)
+
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 	model = Post 
 	fields = ['title', 'content']
 
