@@ -11,7 +11,7 @@ class UserRegisterForm(UserCreationForm):
 		fields = ['username', 'email', 'password1', 'password2']
 
 
-
+# A model form allows us to work with specific database model 
 class UserUpdateForm(forms.ModelForm):
 	email = forms.EmailField()
 

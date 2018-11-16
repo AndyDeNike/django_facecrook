@@ -28,6 +28,7 @@ class PostCreateView(CreateView):
 
 	# Before you submit form, take instance and set it to current user
 	def form_valid(self, form):
+		# sets author before Post is created 
 		form.instance.author = self.request.user
 		return super().form_valid(form)
 
