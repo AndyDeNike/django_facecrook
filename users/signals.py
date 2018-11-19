@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 from django.dispatch import receiver 
 from .models import Profile 
 
-#when a user is saved, send post_save signal, taken in by receiver (create_profile function)
-#
+# when a user is saved, send post_save signal, taken in by receiver (create_profile function)
+# create_profile takes all parameters sent by post_save 
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
 	if created:
