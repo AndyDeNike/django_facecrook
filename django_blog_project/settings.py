@@ -122,11 +122,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #location where media will be sent 
-MEDIA_URL = '/media/' #accessing media from browser 
+#MEDIA_URL = '/media/' #accessing media from browser 
+
+MEDIA_URL = 'https://s3.amazonaws.com:443/%s/media/' % S3_BUCKET
+STATIC_URL = 'https://s3.amazonaws.com:443/%s/static/' % S3_BUCKET
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
