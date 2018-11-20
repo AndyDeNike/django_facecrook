@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from boto.s3.connection import S3Connection
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -128,8 +129,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #location where media will be sent 
 #MEDIA_URL = '/media/' #accessing media from browser 
 
-MEDIA_URL = 'https://s3.amazonaws.com:443/%s/media/' % S3_BUCKET
-STATIC_URL = 'https://s3.amazonaws.com:443/%s/static/' % S3_BUCKET
+s3bucketname = S3Connection(os.environ['S3_BUCKET'])
+MEDIA_URL = 'https://s3.amazonaws.com:443/%s/media/' % s3bucketname
+STATIC_URL = 'https://s3.amazonaws.com:443/%s/static/' % s3bucketname
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
