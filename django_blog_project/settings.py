@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-from boto.s3.connection import S3Connection
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -123,15 +122,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-#STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #location where media will be sent 
-#MEDIA_URL = '/media/' #accessing media from browser 
+MEDIA_URL = '/media/' #accessing media from browser 
 
-s3bucketname = S3Connection(os.environ['S3_BUCKET'])
-MEDIA_URL = 'https://s3.amazonaws.com:443/%s/media/' % s3bucketname
-STATIC_URL = 'https://s3.amazonaws.com:443/%s/static/' % s3bucketname
+# s3bucketname = S3Connection(os.environ['S3_BUCKET'])
+# MEDIA_URL = 'https://s3.amazonaws.com:443/%s/media/' % s3bucketname
+# STATIC_URL = 'https://s3.amazonaws.com:443/%s/static/' % s3bucketname
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -146,7 +145,12 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 
-DEFAULT_FILE_STORAGE = 'django_blog_project.storage_backends.MediaStorage' 
+AWS_STORAGE_BUCKET_NAME = os.environ.get('S3_BUCKET')
+AWS_S3_REGION_NAME = 'us-west'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 import dj_database_url
 db_from_env = dj_database_url.config()
