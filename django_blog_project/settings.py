@@ -125,8 +125,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #location where media will be sent 
-MEDIA_URL = '/media/' #accessing media from browser 
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #location where media will be sent 
+#MEDIA_URL = '/media/' #accessing media from browser 
 
 # s3bucketname = S3Connection(os.environ['S3_BUCKET'])
 # MEDIA_URL = 'https://s3.amazonaws.com:443/%s/media/' % s3bucketname
@@ -158,7 +158,7 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
-
+AWS_LOCATION = 'static'
 
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
