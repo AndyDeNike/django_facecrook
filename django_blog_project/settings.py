@@ -125,7 +125,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #location where media will be sent 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #location where media will be sent 
 MEDIA_URL = '/media/' #accessing media from browser 
 
 
@@ -154,7 +154,7 @@ AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-MEDIAFILES_LOCATION = 'media/profile_pics'
+MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 
