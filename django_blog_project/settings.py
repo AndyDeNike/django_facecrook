@@ -154,7 +154,7 @@ AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-MEDIAFILES_LOCATION = 'media'
+MEDIAFILES_LOCATION = 'media/profile_pics'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 
