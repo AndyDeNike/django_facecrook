@@ -4,8 +4,8 @@ from storages.backends.s3boto3 import S3Boto3Storage
 class MediaStorage(S3Boto3Storage):
     location = settings.MEDIAFILES_LOCATION
 
-    
-class CachedS3BotoStorage(S3BotoStorage):
+
+class CachedS3BotoStorage(S3Boto3Storage):
     """
     S3 storage backend that saves the files both remotely and locally.
 
