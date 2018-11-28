@@ -158,6 +158,7 @@ AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 MEDIA_URL = 'https://s3-us-west-1.amazonaws.com/djangoblogbucket/media/'
 
 MEDIAFILES_LOCATION = 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #location where media will be sent 
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 
