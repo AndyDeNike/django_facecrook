@@ -129,10 +129,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #location where media will be sent 
 #MEDIA_URL = '/media/' #accessing media from browser 
 
-MEDIA_ROOT = '/media/'
-
-
-
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Modified redirect locations for login 
@@ -158,8 +154,8 @@ AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
 #AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-S3_URL = 'http://s3.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME
-MEDIA_URL = S3_URL + MEDIA_ROOT
+S3_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+MEDIA_URL = S3_URL + 'media/'
 
 MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
