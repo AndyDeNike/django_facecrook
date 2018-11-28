@@ -155,7 +155,7 @@ AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-MEDIAFILES_LOCATION = 'media'
+MEDIAFILES_LOCATION = 'https://s3-us-west-1.amazonaws.com/djangoblogbucket/media/'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 
