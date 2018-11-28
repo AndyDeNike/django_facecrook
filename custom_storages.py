@@ -8,7 +8,7 @@ class MediaStorage(S3Boto3Storage):
 
 
 
-class CachedS3BotoStorage(S3BotoStorage):
+class CachedS3BotoStorage(S3Boto3Storage):
     """
     S3 storage backend that saves the files locally, too.
 
