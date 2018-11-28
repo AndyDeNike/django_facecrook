@@ -8,18 +8,27 @@ class MediaStorage(S3Boto3Storage):
 
 
 
-# class CachedS3BotoStorage(S3Boto3Storage):
-#     """
-#     S3 storage backend that saves the files both remotely and locally.
+class CachedS3BotoStorage(S3BotoStorage):
+    """
+    S3 storage backend that saves the files locally, too.
 
-#     See http://django_compressor.readthedocs.org/en/latest/remote-storages/
-#     """
-#     def __init__(self, *args, **kwargs):
-#         super(CachedS3BotoStorage, self).__init__(*args, **kwargs)
-#         self.local_storage = get_storage_class(
-#             "django.core.files.storage.FileSystemStorage")()
+    It's needed for static files and django-compressor to get along :)
+    """
+    def __init__(self, *args, **kwargs):
+        super(CachedS3BotoStorage, self).__init__(*args, **kwargs)
+        self.local_storage = get_storage_class(
+            "compressor.storage.CompressorFileStorage")()
 
-#     def save(self, name, content):
-#         name = super(CachedS3BotoStorage, self).save(name, content)
-#         self.local_storage._save(name, content)
-#         return name
+    def save(self, name, content):
+        """Save both on S3 and locally."""
+        name = super(CachedS3BotoStorage, self).save(name, content)
+        self.local_storage._save(name, content)
+        return name
+
+    def path(self, name):
+        """
+        Return absolute path as saved in local stoarge backend.
+
+        Required by django-inlinecss.
+        """
+        return self.local_storage.path(name)
