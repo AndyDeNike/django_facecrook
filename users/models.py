@@ -15,7 +15,7 @@ class Profile(models.Model):
 
 		#img = Image.open(self.image.path)
 		#img = Image.open(storage.open(self.image.path))   #both this and above line produce equivalent
-		img = Image.open(storage.open(self.image.name))
+		img = Image.open(storage.open(self.image.path))
 
 		# if img.height > 300 or img.width > 300:
 		# 	output_size = (300, 300)
