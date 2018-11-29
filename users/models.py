@@ -13,13 +13,13 @@ class Profile(models.Model):
 	def save(self, **kwargs):
 		super().save()
 
-		img = Image.open(self.image.name)
-		#img = Image.open(storage.open(self.image.path))   #both this and above line produce equivalent result
+		img = Image.open(self.image.path)
+		#img = Image.open(storage.open(self.image.path))   #both this and above line produce equivalent
 		#img = Image.open(storage.open(self.image.path))
 
-		if img.height > 300 or img.width > 300:
-			output_size = (300, 300)
-			img.thumbnail(output_size)
-			img.save(self.image.path)
+		# if img.height > 300 or img.width > 300:
+		# 	output_size = (300, 300)
+		# 	img.thumbnail(output_size)
+		# 	img.save(self.image.path)
 
 			#turn path to name
