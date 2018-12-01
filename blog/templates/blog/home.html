@@ -10,7 +10,7 @@
 		    </div>
 		    <!-- takes in post.id from the pk of the post in posts and sends this to post-detail-->
 		    <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-		    <p class="article-content">{{ post.content }}</p>
+		    <p class="article-content">{{ post.content|urlize }}</p>
 		  </div>
 		</article>
 	{% endfor %}
