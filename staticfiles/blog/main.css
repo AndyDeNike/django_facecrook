@@ -29,7 +29,6 @@ ul {
 }
 
 .content-section {
-  word-wrap: break-word;
   background: #ffffff;
   padding: 10px 20px;
   border: 1px solid #dddddd;
@@ -48,6 +47,8 @@ a.article-title:hover {
 
 .article-content {
   white-space: pre-line;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .article-img {
