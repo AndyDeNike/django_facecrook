@@ -34,10 +34,7 @@ ul {
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 20px;
-}
-
-.media{
-  word-wrap: anywhere;
+  word-break: break-all;
 }
 
 .article-title {
