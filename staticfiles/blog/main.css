@@ -34,6 +34,8 @@ ul {
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 20px;
+  overflow-wrap: anywhere;
+
 }
 
 .article-title {
@@ -47,8 +49,6 @@ a.article-title:hover {
 
 .article-content {
   white-space: pre-line;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
 }
 
 .article-img {
