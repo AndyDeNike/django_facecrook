@@ -29,6 +29,7 @@ ul {
 }
 
 .content-section {
+  word-wrap: break-word;
   background: #ffffff;
   padding: 10px 20px;
   border: 1px solid #dddddd;
