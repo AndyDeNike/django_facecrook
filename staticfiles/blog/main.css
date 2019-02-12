@@ -29,11 +29,12 @@ ul {
 }
 
 .content-section {
-  background: #ffffff;
+  background: #aaaaaa;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 20px;
+  overflow-wrap: anywhere;
 }
 
 .article-title {
